@@ -13,9 +13,7 @@ body {
 header {
     margin: 10px;
     padding: 5px;
-    /*ovaj padding povećava kutiju za 10px po visini*/
     height: 90px;
-    /*Ukupna visina kutije je 100px*/
     background-color: #fc4a1a;
     border-radius: 10px;
     background-image: url("../images/logo.png");
@@ -29,7 +27,6 @@ header h1 {
     text-align: center;
     font-size: 2em;
     line-height: 2.8125em;
-    /*Visina 90px / 2 em => 2.8125em*/
 }
 
 nav {
@@ -41,31 +38,27 @@ nav {
 }
 
 nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
     height: 100%;
     border-radius: 10px;
     list-style-type: none;
-    text-align: center;
     font-size: 1.5em;
 }
 
 nav ul li {
-    display: inline-block;
-    margin-right: 30px;
-    height: 100%;
+    display: flex;
     width: 120px;
-}
-
-nav ul li:last-child {
-    margin-right: 0;
+    height: 100%;
 }
 
 nav ul li a {
-    display: inline-block;
-    height: 100%;
-    width: 100%;
+    flex: 1;
+    text-align: center;
     text-decoration: none;
     line-height: 2.916em;
-    /*Visina 70px / 1.5em => 2.916em*/
     border-radius: 10px;
 }
 
@@ -75,100 +68,85 @@ nav ul li a:hover {
 }
 
 main {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 10px 0;
+    height: 216px;
     margin: 10px;
     border-radius: 10px;
 }
 
-main article, aside {
+main::before {
+    content: "";
+    order: 2;
+    flex: 0 0 100%;
+    width: 0;
+}
+
+main article,
+main aside {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    padding: 5px;
     background-color: #f78733;
-}
-
-main aside:nth-child(1) {
-    
-    width: 300px;
-    padding: 5px;
     border-radius: 10px;
 }
 
-main aside:nth-child(1) p {
-    width: 100%;
-    height: 100%;
+main article {
+    order: 1;
+    width: calc(100% - 310px);
+    margin-right: 10px;
 }
 
+main aside {
+    order: 3;
+    width: 300px;
+}
+
+main article:nth-child(4),
 main aside:nth-child(2) {
-    
-
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 300px;
-    padding: 5px;
-    border-radius: 10px;
-}
-
-main aside:nth-child(2) p {
-    width: 100%;
-    height: 100%;
-}
-
-main article:nth-child(3) {
-    margin-top: 0px;
-    margin-right: 320px;
-    padding: 5px;
-    border-radius: 10px;
-}
-
-main article:nth-child(3) p, main article:nth-child(3) h2 {
-    width: 100%;
-}
-
-main article:nth-child(4) {
-    margin-top: 10px;
-    margin-right: 320px;
-    padding: 5px;
-    border-radius: 10px;
-}
-
-main article:nth-child(4) p, main article:nth-child(4) h2 {
-    width: 100%;
+    flex-grow: 1;
 }
 
 footer {
-    
-    background-color: #fc4a1a;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     margin: 10px;
     padding: 5px;
     height: 90px;
+    background-color: #fc4a1a;
     border-radius: 10px;
 }
 
+footer p {
+    order: 1;
+    margin-left: 10px;
+}
+
 footer ul {
-    width: auto;
-    height: auto;
-    text-align: center;
-    
+    order: 2;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
     list-style-type: none;
 }
 
 footer ul li {
-    display: inline-block;
-    text-align: center;
-    width: auto;
-    height: auto;
+    display: flex;
 }
 
 footer ul li a {
-    display: inline-block;
-    width: auto;
-    height: auto;
+    display: flex;
 }
 
-footer ul li a:hover{
+footer ul li a img {
+    display: block;
+}
+
+footer ul li a:hover {
     opacity: 0.5;
-}
-
-footer p {
-    height: 100%;
-    width: 100%;
-    line-height: 5.625em;
-    text-align: left
 }
