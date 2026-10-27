@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    background-color: #4abdac;
+    color: #dfdce3;
+}
+
+header {
+    margin: 10px;
+    padding: 5px;
+    height: 90px;
+    background-color: #fc4a1a;
+    border-radius: 10px;
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+}
+
+header h1 {
+    height: 100%;
+    text-align: center;
+    font-size: 2em;
+    line-height: 2.8125em;
+}
+
+nav {
+    margin: 10px;
+    padding: 5px;
+    height: 70px;
+    background-color: #f78733;
+    border-radius: 10px;
+}
+
+nav ul {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 120px;
+    grid-auto-rows: 100%;
+    gap: 30px;
+    justify-content: center;
+    height: 100%;
+    border-radius: 10px;
+    list-style-type: none;
+    font-size: 1.5em;
+}
+
+nav ul li a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    line-height: 2.916em;
+    border-radius: 10px;
+}
+
+nav ul li a:hover {
+    background-color: #dfdce3;
+    color: #f78733;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    grid-auto-rows: auto;
+    grid-template-areas:
+        "article1 aside1"
+        "article1 aside2"
+        "article2 aside2";
+    gap: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+main article,
+main aside {
+    padding: 5px;
+    background-color: #f78733;
+    border-radius: 10px;
+}
+
+main aside:nth-child(1) {
+    grid-area: aside1;
+}
+
+main aside:nth-child(2) {
+    grid-area: aside2;
+}
+
+main article:nth-child(3) {
+    grid-area: article1;
+}
+
+main article:nth-child(4) {
+    grid-area: article2;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "copyright icons";
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+    height: 90px;
+    background-color: #fc4a1a;
+    border-radius: 10px;
+}
+
+footer p {
+    grid-area: copyright;
+    margin-left: 10px;
+}
+
+footer ul {
+    grid-area: icons;
+    align-self: start;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 5px;
+    list-style-type: none;
+}
+
+footer ul li a img {
+    display: block;
+}
+
+footer ul li a:hover {
+    opacity: 0.5;
+}
